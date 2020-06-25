@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "css illustrations collection",
   "main": "index.js",
+  "config": {
+    "lesson": "one"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "browser-sync start -f one/ -s one --ss assets/"
+    "serve": "browser-sync start -f ${LESSON:-one} -s ${LESSON:-one} --ss assets/"
   },
   "author": "jh3y <jh3y@users.noreply.github.com>",
   "license": "MIT",
