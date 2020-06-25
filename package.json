@@ -1,0 +1,31 @@
+{
+  "name": "egghead",
+  "version": "0.0.0",
+  "description": "the source for my egghead content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jh3y/egghead.git"
+  },
+  "keywords": [
+    "egghead",
+    "jhey"
+  ],
+  "workspaces": [
+    "collections/**/*",
+    "lessons/**/*"
+  ],
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jh3y/egghead/issues"
+  },
+  "homepage": "https://github.com/jh3y/egghead#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}

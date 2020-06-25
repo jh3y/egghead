@@ -1,0 +1,15 @@
+{
+  "name": "css-illustration-techniques-with-css-egghead",
+  "version": "1.0.0",
+  "description": "css illustrations collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start -f one/ -s one --ss assets/"
+  },
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
