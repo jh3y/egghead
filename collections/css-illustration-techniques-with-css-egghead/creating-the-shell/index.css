@@ -1,0 +1,132 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+:root {
+  --size: 50;
+  --unit: calc((var(--size) / 769) * 1vmin);
+  --bg: #ffd500;
+  --shell-outline: #666;
+  --shell: #fff;
+}
+
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+.egg,
+img {
+  height: calc(769 * var(--unit));
+  width: calc(742 * var(--unit));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  background: hsla(90, 100%, 50%, 0.2);
+  opacity: 0.4;
+}
+
+
+.egg {
+  z-index: 2;
+}
+
+.egg *,
+.egg *:after,
+.egg *:before {
+  position: absolute;
+}
+
+/* .egg__shell {
+  background: hsla(180, 100%, 50%, 0.2);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 95%;
+  width: 74%;
+}
+
+.egg__shell-top {
+  height: 110%;
+  background: var(--shell);
+  width: 106%;
+  opacity: 0.5;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  border: calc(23 * var(--unit)) solid var(--shell-outline);
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  clip-path: inset(0 0 70% 0);
+}
+
+.egg__shell-bottom {
+  bottom: 0;
+  left: 50%;
+  background: var(--shell);
+  opacity: 0.5;
+  height: 100%;
+  width: 99%;
+  transform: translate(-50%, 0);
+  border: calc(23 * var(--unit)) solid var(--shell-outline);
+  border-radius: 50% / 62% 62% 38% 38%;
+  clip-path: inset(58% 0 0 0);
+}
+
+.egg__shell-middle {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--shell);
+  opacity: 0.5;
+  width: 98%;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  border: calc(23 * var(--unit)) solid var(--shell-outline);
+  clip-path: inset(32% 0 40% 0);
+  height: 100%;
+} */
+
+/* Talk about how we create a container for each piece and then refactoring at the end */
+
+.egg__shell {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 95%;
+  width: 74%;
+}
+
+.egg__shell-fragment {
+  left: 50%;
+  background: var(--shell);
+  transform: translate(-50%, 0);
+  border: calc(23 * var(--unit)) solid var(--shell-outline);
+}
+
+.egg__shell-top {
+  height: 110%;
+  width: 106%;
+  top: 0;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  clip-path: inset(0 0 70% 0);
+}
+
+.egg__shell-bottom {
+  bottom: 0;
+  height: 100%;
+  width: 99%;
+  border-radius: 50% / 62% 62% 38% 38%;
+  clip-path: inset(58% 0 0 0);
+}
+
+.egg__shell-middle {
+  top: 0;
+  width: 98%;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+  clip-path: inset(32% 0 40% 0);
+  height: 100%;
+}

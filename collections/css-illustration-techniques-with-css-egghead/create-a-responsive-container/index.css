@@ -1,0 +1,36 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+:root {
+  --size: 50;
+  --unit: calc((var(--size) / 769) * 1vmin);
+  --bg: #ffd500;
+}
+
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+.egg,
+img {
+  height: calc(769 * var(--unit));
+  width: calc(742 * var(--unit));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  background: hsla(90, 100%, 50%, 0.2);
+  opacity: 0.4;
+}
+
+
+.egg {
+  background: hsla(0, 100%, 50%, 0.2);
+  z-index: 2;
+}
