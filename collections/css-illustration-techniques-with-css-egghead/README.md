@@ -5,5 +5,5 @@
 Set the environment variable `LESSON` for the lesson you'd like to serve and run `yarn serve`.
 
 ```
-LESSON=1.create-a-responsive-container yarn serve
+LESSON=1.create-the-foundations-for-a-css-illustration yarn serve
 ```
