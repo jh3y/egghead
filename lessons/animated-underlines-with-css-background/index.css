@@ -1,0 +1,42 @@
+:root {
+  --bg: hsl(0, 100%, 10%);
+  --color: hsl(0, 0%, 100%);
+  --underline-width: 8px;
+  --underline-block-width: 20px;
+  --underline-color: hsla(0, 100%, 50%, 0.5);
+  --underline-color-hover: hsla(0, 100%, 50%, 1);
+  --underline-transition: 0.5s;
+}
+
+body {
+  align-items: center;
+  background-color: var(--bg);
+  color: var(--color);
+  display: flex;
+  font-family: monospace;
+  font-size: 3rem;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+p {
+  width: 300px;
+}
+
+a {
+  color: var(--color);
+  text-decoration: none;
+  background-image: linear-gradient(90deg, var(--bg), var(--bg)),
+                    linear-gradient(90deg, var(--underline-color), var(--underline-color));
+  background-size: var(--underline-block-width) var(--underline-width), 100% var(--underline-width);
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--underline-block-width) * -1), 0;
+  background-position-y: 100%;
+  transition: background-position-x var(--underline-transition);
+}
+
+a:hover {
+  background-image: linear-gradient(90deg, var(--bg), var(--bg)),
+                    linear-gradient(90deg, var(--underline-color-hover), var(--underline-color-hover));
+  background-position-x: calc(100% + var(--underline-block-width)), 0;
+}
