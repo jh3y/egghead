@@ -1,0 +1,56 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button + button {
+  margin-top: 1rem;
+}
+
+.button {
+  --lightness: 62%;
+  --hue: 190;
+  outline: transparent;
+  padding: 12px 24px;
+  font-family: sans-serif;
+  font-size: 2rem;
+  border-radius: 6px;
+  border: 0;
+  color: #fafafa;
+  min-width: 200px;
+  box-shadow: 4px 4px 8px #111;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  background-color: hsl(var(--hue), 89%, var(--lightness));
+}
+
+.button:hover {
+  box-shadow: 3px 3px 6px #111;
+  --lightness: 42%;
+}
+
+.button:active {
+  box-shadow: 0 0 0 #111;
+  --lightness: 22%;
+}
+
+.button--confirm {
+  --hue: 90;
+}
+
+.button--warning {
+  --hue: 45;
+}
+
+.button--delete {
+  --hue: 10;
+}
