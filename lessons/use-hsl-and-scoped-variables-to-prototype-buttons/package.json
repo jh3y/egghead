@@ -1,7 +1,7 @@
 {
-  "name": "border-radius",
+  "name": "use-hsl-and-scoped-css-variables-for-prototyping",
   "version": "1.0.0",
-  "description": "border-radius-lesson",
+  "description": "use hsl and scoped css variables for prototyping lesson",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,7 +1,7 @@
 {
-  "name": "animated-underlines-with-css-background",
+  "name": "chrome-devtools-cls",
   "version": "1.0.0",
-  "description": "animated underlines with CSS background lesson",
+  "description": "chome-devtools CLS lesson",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
