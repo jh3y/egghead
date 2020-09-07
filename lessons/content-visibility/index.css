@@ -1,0 +1,198 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  background: hsl(0, 0%, 95%);
+  margin: 0 auto;
+  font-family: 'system-ui', sans-serif;
+  box-sizing: border-box;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+main {
+  padding: 0 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+section {
+  /* Uncomment these properties for significant gains!!! */
+  /* content-visibility: auto;
+  contain-intrinsic-size: 1000px; */
+}
+
+header {
+  height: 100vh;
+  width: 100vw;
+  background: url("https://picsum.photos/1920/1080");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header * {
+  background: hsl(0, 0%, 100%);
+  padding: 1rem;
+}
+
+blockquote {
+  padding: 1rem;
+  border:  4px dashed hsl(0, 80%, 50%);
+}
+
+p {
+  max-width: 52ch;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.75rem;
+}
+
+a {
+  color: mediumvioletred;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin: 1rem;
+}
+
+nav ul.nav-items {
+  display: flex;
+  padding: 0;
+  flex-shrink: 1;
+}
+
+.nav-items li {
+  margin-top: 1rem;
+}
+.nav-items li:nth-of-type(2) {
+  margin-top: 2rem;
+}
+.nav-items li:nth-of-type(3) {
+  margin-top: 3rem;
+}
+.nav-items li:nth-of-type(4) {
+  margin-top: 4rem;
+}
+
+nav a {
+  flex: 1 0 180px;
+}
+
+figure {
+  width: 100%;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style: inside;
+  padding: 0;
+}
+
+figure:nth-of-type(even) figcaption {
+  float: right;
+  margin: -1rem -1rem 1rem -1rem;
+}
+
+hr {
+  clear: both;
+}
+
+.leading {
+  font-size: 120%;
+}
+
+.leading::first-letter {
+  font-size: 150%;
+  font-weight: 800;
+}
+
+.full-width {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.full-width figcaption {
+  position: relative;
+  margin: -2rem auto 0;
+}
+
+.image-shots {
+  display: grid;
+  grid-gap: 0.25rem 0.5rem;
+  margin: 1rem auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-shots--3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.image-shots--stretched > *:first-of-type {
+  grid-row: span 3;
+}
+
+.image-shots--stretched > *:first-of-type img {
+  height: 100%;
+}
+.image-shots--stretched > *:last-of-type {
+  grid-column: span 2;
+}
+
+.columned {
+  column-count: 2;
+}
+
+figcaption {
+  font-size: 80%;
+  background: hsl(0, 80%, 90%);
+  border: 4px dashed hsl(0, 80%, 50%);
+  padding: 1rem;
+  margin: -1rem 0 1rem -1rem;
+  z-index: 1;
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+}
+
+figure img {
+  background: hsl(0, 80%, 95%);
+}
+
+footer {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: hsl(0, 80%, 60%);
+  padding: 3rem;
+}
