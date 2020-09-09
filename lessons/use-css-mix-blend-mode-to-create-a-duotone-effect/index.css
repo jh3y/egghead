@@ -1,0 +1,38 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(200, 60%, 20%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.duotone {
+  position: relative;
+}
+
+.duotone:after,
+.duotone:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.duotone:after {
+  background-color: hsl(280, 80%, 50%);
+  mix-blend-mode: lighten;
+}
+
+.duotone:before {
+  background-color: hsl(90, 80%, 50%);
+  mix-blend-mode: darken;
+}

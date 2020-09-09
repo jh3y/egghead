@@ -1,0 +1,30 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(280, 50%, 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  border: 10px solid white;
+  border-radius: 50%;
+  height: 10vmin;
+  width: 10vmin;
+  border-left-color: hsl(280, 50%, 40%);
+  border-right-color: hsl(280, 50%, 40%);
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,35 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(0, 50%, 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  filter: drop-shadow(10px 10px 10px hsl(0, 0%, 15%));
+}
+
+figcaption {
+  font-family: sans-serif;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(0%, 50%);
+  white-space: nowrap;
+  background: hsl(0, 0%, 100%);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
