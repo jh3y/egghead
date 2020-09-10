@@ -1,0 +1,54 @@
+:root {
+  --body: #333;
+  --body-shimmer: rgba(255, 255, 255, 0.1);
+  --stroke: #262626;
+  --button: #999;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  --saturation: 50;
+  --hue: 180;
+  background: hsl(var(--hue), calc(var(--saturation, 40) * 1%), 80%);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.dot {
+  fill: #7a1f1f;
+}
+.hifi {
+  height: 50vmin;
+  border-bottom: 4px solid
+    hsl(var(--hue), calc(var(--saturation, 40) * 1%), 50%);
+}
+.hifi__body {
+  fill: var(--body);
+}
+.hifi__shimmer {
+  fill: var(--body-shimmer);
+}
+.shimmer {
+  fill: var(--body-shimmer);
+}
+.stroked {
+  stroke: var(--stroke);
+}
+.button {
+  fill: var(--button);
+}
+.lcd__panel {
+  fill: #a79e4d;
+}
+.tweeter__outer {
+  fill: #313131;
+  stroke: var(--button);
+}
+.tweeter__inner {
+  fill: var(--body-shimmer);
+}

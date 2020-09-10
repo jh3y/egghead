@@ -1,15 +1,19 @@
 {
-  "name": "use-css-mix-blend-mode-to-create-a-duotone-effect",
+  "name": "bring-a-hifi-to-life-with-greensock",
   "version": "1.0.0",
-  "description": "create a duotone style effect using CSS mix-blend-mode",
+  "description": "greensock animation collection",
   "main": "index.js",
+  "config": {
+    "lesson": "one"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "browser-sync start -f ./ -s ./"
+    "serve": "browser-sync start -f ${LESSON:-one} -s ${LESSON:-one} --ss assets/"
   },
   "author": "jh3y <jh3y@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.26.7"
-  }
+  },
+  "dependencies": {}
 }

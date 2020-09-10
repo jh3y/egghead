@@ -1,7 +1,7 @@
 {
-  "name": "create-a-loading-animation-with-css",
+  "name": "use-css-filter-to-create-a-drop-shadow",
   "version": "1.0.0",
-  "description": "create a loading animation with css",
+  "description": "create a drop shadow using CSS filter property",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
