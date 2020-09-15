@@ -70,6 +70,11 @@ label {
   right: 1rem;
   cursor: pointer;
 }
+
+label:nth-of-type(1) {
+  right: 4rem;
+}
+
 label > svg {
   position: absolute;
   height: 100%;
@@ -87,9 +92,9 @@ label svg:nth-of-type(1) {
   height: 0;
   width: 0;
 }
-:checked ~ label svg:nth-of-type(1) {
+:checked + label svg:nth-of-type(1) {
   display: block;
 }
-:checked ~ label svg:nth-of-type(2) {
+:checked + label svg:nth-of-type(2) {
   display: none;
 }

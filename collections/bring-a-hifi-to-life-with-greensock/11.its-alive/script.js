@@ -117,15 +117,14 @@ AUDIO.loop = true
 AUDIO.muted = true
 AUDIO.autoplay = true
 
-const HIFI = document.querySelector('.hifi')
 const VOLUME_TOGGLE = document.querySelector('#volume')
-
+const PLAY_TOGGLE = document.querySelector('#play')
 VOLUME_TOGGLE.addEventListener('input', () => {
   AUDIO.muted = !AUDIO.muted
   AUDIO.play()
 })
 
-HIFI.addEventListener('click', () => {
+PLAY_TOGGLE.addEventListener('input', () => {
   if (MAIN.progress() !== 0) {
     MAIN.pause()
     MAIN.time(0)
