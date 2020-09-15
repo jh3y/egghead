@@ -1,0 +1,78 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+:root {
+  --bg: hsl(0, 0%, 98%);
+}
+
+body {
+  background-color: var(--bg);
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  color: hsl(0, 0%, 15%);
+}
+
+article {
+  margin: 0 auto;
+  max-width: calc(600px + 1rem);
+  padding: 0 1rem;
+}
+
+article > * + * {
+  margin-top: 4rem;
+}
+
+h1, h2 {
+  margin: 0;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.25rem;
+  color: hsl(0, 0%, 50%);
+}
+
+.hero {
+  width: 100vw;
+  height: 25vh;
+  object-fit: cover;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  left: 50%;
+  margin-bottom: 3rem;
+}
+
+section:nth-of-type(even) img {
+  float: right;
+  margin: 2rem -50px 1rem 1rem;
+}
+
+section:nth-of-type(odd) img {
+  float: left;
+  margin: 2rem 1rem 1rem -50px;
+}
+
+section img {
+  object-fit: cover;
+}
+
+footer {
+  padding: 2rem;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+section img {
+  --aspect-ratio: calc( 4 / 3);
+  --height: 30vmin;
+  --width: calc(var(--height) * var(--aspect-ratio));
+  height: var(--height);
+  width: var(--width);
+}
