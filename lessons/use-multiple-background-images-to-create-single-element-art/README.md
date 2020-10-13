@@ -1,8 +1,6 @@
-# create-a-loading-animation-with-css
+# use-multiple-background-images-to-create-single-element-art
 
-Use CSS `@keyframes` to build a basic loading animation for a page.
-
-In this lesson we cover the basics of the animation property and how to use it to build a loading animation.
+Use layered `background-image` with the shorthand notation to create CSS art with a single element.
 
 # Usage
 

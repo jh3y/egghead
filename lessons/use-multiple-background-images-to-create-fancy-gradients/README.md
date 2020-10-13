@@ -1,8 +1,6 @@
-# create-a-loading-animation-with-css
+# use-multiple-background-images-to-create-fancy-gradients
 
-Use CSS `@keyframes` to build a basic loading animation for a page.
-
-In this lesson we cover the basics of the animation property and how to use it to build a loading animation.
+Use multiple background image layers to create more complex and visually appealing gradients for backgrounds.
 
 # Usage
 

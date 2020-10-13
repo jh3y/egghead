@@ -1,8 +1,6 @@
-# create-a-loading-animation-with-css
+# use-css-variables-as-boolean-values-with-calc
 
-Use CSS `@keyframes` to build a basic loading animation for a page.
-
-In this lesson we cover the basics of the animation property and how to use it to build a loading animation.
+Use CSS variables as boolean values to abstract logic away from the implementation in our CSS.
 
 # Usage
 
