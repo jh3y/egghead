@@ -1,0 +1,15 @@
+{
+  "name": "use-css-transforms-to-create-a-cuboid",
+  "version": "1.0.0",
+  "description": "use CSS transforms to create a 3D cuboid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start -f ./ -s ./"
+  },
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
