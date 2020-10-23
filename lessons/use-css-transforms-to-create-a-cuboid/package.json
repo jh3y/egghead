@@ -1,7 +1,7 @@
 {
   "name": "use-css-transforms-to-create-a-cuboid",
   "version": "1.0.0",
-  "description": "use CSS transforms to create a 3D cuboid",
+  "description": "create a configurable cuboid with CSS transforms",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

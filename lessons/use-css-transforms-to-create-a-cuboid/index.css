@@ -6,6 +6,7 @@
 
 body {
   min-height: 100vh;
+  background: hsl(210, 50%, 20%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,37 +14,65 @@ body {
   perspective: 800px;
 }
 
-.cube {
-  height: 200px;
-  width: 200px;
+.cuboid {
+  --width: 10vmin;
+  --height: 20vmin;
+  --depth: 30vmin;
+  height: var(--height);
+  width: var(--width);
   position: relative;
+  transform: rotateX(24deg) rotateY(32deg);
   transform-style: preserve-3d;
-  transform: rotateX(-24deg) rotateY(-120deg);
 }
 
-.cube__side {
-  height: 100%;
-  width: 100%;
-  background: hsla(0, 50%, 50%, 0.5);
-  border: 2px solid hsl(0, 0%, 10%);
+.cuboid__side {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border: 1px solid hsl(0, 0%, 10%);
   position: absolute;
 }
 
-.cube__side:nth-of-type(1) {
-  transform: translate3d(0, 0, 100px);
+.cuboid__side:nth-of-type(1),
+.cuboid__side:nth-of-type(2) {
+  --coefficient: -0.5;
+  height: var(--height);
+  width: var(--width);
+  transform: translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
 }
-.cube__side:nth-of-type(2) {
-  transform: translate3d(0, 0, -100px) rotateY(180deg);
+
+.cuboid__side:nth-of-type(2) {
+  --coefficient: 0.5;
 }
-.cube__side:nth-of-type(3) {
-  transform: rotateY(90deg) translate3d(0, 0, -100px);
+
+.cuboid__side:nth-of-type(3),
+.cuboid__side:nth-of-type(4) {
+  --rotation: 90deg;
+  height: var(--height);
+  width: var(--depth);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateY(var(--rotation)) translate3d(0, 0, calc(var(--width) * -0.5));
 }
-.cube__side:nth-of-type(4) {
-  transform: rotateY(-90deg) translate3d(0, 0, -100px);
+
+.cuboid__side:nth-of-type(4) {
+  --rotation: -90deg;
 }
-.cube__side:nth-of-type(5) {
-  transform: rotateX(90deg) translate3d(0, 0, -100px);
+
+.cuboid__side:nth-of-type(5),
+.cuboid__side:nth-of-type(6) {
+  --rotation: -90deg;
+  height: var(--depth);
+  width: var(--width);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateX(var(--rotation)) translate3d(0, 0, calc(var(--height) * -0.5));
 }
-.cube__side:nth-of-type(6) {
-  transform: rotateX(-90deg) translate3d(0, 0, -100px);
+
+.cuboid__side:nth-of-type(6) {
+  --rotation: 90deg;
+}
+
+.cuboid:nth-of-type(2) {
+  --width: 5vmin;
+  --height: 15vmin;
+  --depth: 10vmin;
 }

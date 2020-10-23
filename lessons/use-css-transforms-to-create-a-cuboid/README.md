@@ -1,6 +1,6 @@
-# use-multiple-background-images-to-create-fancy-gradients
+# use-css-transforms-to-create-a-configurable-3d-cuboid
 
-Use multiple background image layers to create more complex and visually appealing gradients for backgrounds.
+In this lesson, use CSS transforms with CSS variables to create configurable 3D cuboids.
 
 # Usage
 
