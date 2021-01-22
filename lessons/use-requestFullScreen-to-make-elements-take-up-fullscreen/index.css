@@ -6,31 +6,57 @@
 
 body {
   min-height: 100vh;
-  background: hsl(0, 10%, 90%);
+  background: hsl(220, 34%, 24%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.head {
-  --eyebrow--left: linear-gradient(#000, #000) 25% 15% / 6vmin 2vmin;
-  --eyebrow--right: linear-gradient(#000, #000) 75% 15% / 6vmin 2vmin;
-  --twinkle--left: radial-gradient(circle at 40% 40%, #FFF 10%, transparent 10%) 25% 35% / 5vmin 5vmin;
-  --eye--left: radial-gradient(#000 50%, transparent 50%) 25% 35% / 5vmin 5vmin;
-  --twinkle--right: radial-gradient(circle at 40% 40%, #FFF 10%, transparent 10%) 75% 35% / 5vmin 5vmin;
-  --eye--right: radial-gradient(#000 50%, transparent 50%) 75% 35% / 5vmin 5vmin;
-  --mouth: radial-gradient(circle at 50% 0, #FFF 44%, transparent 44%) 50% 100% / 10vmin 10vmin;
-  height: 25vmin;
-  width: 25vmin;
-  background:
-    var(--eyebrow--left),
-    var(--eyebrow--right),
-    var(--twinkle--left),
-    var(--eye--left),
-    var(--twinkle--right),
-    var(--eye--right),
-    var(--mouth),
-    #ffe330;
-  background-repeat: no-repeat;
+div > * + * {
+  margin-top: 2rem;
+}
+div * {
+  display: block;
+}
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  color: hsl(0, 10%, 100%);
+  background: hsl(90, 50%, var(--l, 40%));
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  outline: transparent;
+}
+
+button:hover {
+  --l: 30%;
+}
+
+button:active {
+  --l: 20%;
+}
+
+img {
+  width: 50vmin;
+}
+
+.fullscreen img {
+  height: 100vh;
+  width: 100vw;
+}
+
+.fullscreen button {
+  position: absolute;
+  left: 50%;
+  bottom: 10vh;
+  transform: translate(-50%, 0);
 }
