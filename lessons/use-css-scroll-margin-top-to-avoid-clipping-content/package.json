@@ -1,0 +1,15 @@
+{
+  "name": "use-css-scroll-margin-top-to-avoid-clipping-content",
+  "version": "1.0.0",
+  "description": "use CSS scroll-margin-top to avoid clipping content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start -f ./ -s ./"
+  },
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}

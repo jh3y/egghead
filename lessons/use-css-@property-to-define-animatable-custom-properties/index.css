@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+@property --wave {
+  initial-value: 50%;
+  inherits: false;
+  syntax: '<percentage>';
+}
+
+@property --wave-2 {
+  initial-value: 60%;
+  inherits: false;
+  syntax: '<percentage>';
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(210, 32%, 24%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wave {
+  background: linear-gradient(90deg,
+                            hsl(210, 50%, 50%) var(--wave),
+                            hsl(210, 50%, 70%) var(--wave-2),
+                            hsl(50, 40%, 60%));
+  height: 25vmin;
+  width: 25vmin;
+  animation: waves 5s infinite;
+}
+
+@keyframes waves {
+  50% {
+    --wave: 65%;
+    --wave-2: 75%;
+  }
+}

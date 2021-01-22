@@ -1,0 +1,15 @@
+{
+  "name": "use-css-property-to-define-animatable-custom-properties",
+  "version": "1.0.0",
+  "description": "use CSS property to define animatable custom properties",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start -f ./ -s ./"
+  },
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
