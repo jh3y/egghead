@@ -1,9 +1,36 @@
 <html>
   <head>
-    <link rel="icon" href="./favicon.png" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" href="./favicon.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" />
   </head>
   <body>
-    <div class="head"></div>
+    <div class="min-h-screen bg-blue-200 flex items-center justify-center">
+      <div class="grid grid-cols-2 grid-rows-2 gap-2">
+        <input
+          class="px-8 py-4 rounded-md"
+          id="value"
+          type="text"
+          data-lpignore="true"
+          value="abc-123"
+        />
+        <button class="rounded-md bg-blue-500 text-white hover:bg-blue-600" id="copy">
+          Copy
+        </button>
+        <input
+          class="px-8 py-4 rounded-md"
+          id="paste-bin"
+          placeholder="Paste value"
+          type="text"
+          data-lpignore="true"
+        />
+        <button
+          class="rounded-md bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
+          id="paste"
+        >
+          Paste
+        </button>
+      </div>
+    </div>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
