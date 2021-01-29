@@ -1,0 +1,13 @@
+.game
+  form
+    .board
+      - for (let i = 0; i < 9; i++)
+        input(type="checkbox" id=`x-${i}`)
+        label(for=`x-${i}`)
+          span= `Naught ${i}`
+        input(type="checkbox" id=`o-${i}`)
+        label(for=`o-${i}`)
+          span= `Cross ${i}`
+    button(type="reset") Reset Board
+
+h1 Hello World

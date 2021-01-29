@@ -1,0 +1,17 @@
+{
+  "name": "pure-css-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Create Pure CSS Tic Tac Toe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel one/index.pug two/index.pug"
+  },
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "pug": "^3.0.0",
+    "stylus": "^0.54.8"
+  }
+}
