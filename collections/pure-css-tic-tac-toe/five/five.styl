@@ -1,0 +1,83 @@
+*
+  box-sizing border-box
+
+:root
+  --size 50vmin
+  --piece-size calc(var(--size) / 3)
+
+body
+  min-height 100vh
+  display grid
+  place-items center
+
+form
+.board
+  display grid
+  place-items center
+  position relative
+
+.board
+  height var(--size)
+  width var(--size)
+  grid-template-columns repeat(3, 1fr)
+  grid-template-rows repeat(3, 1fr)
+
+  &__cell
+    height var(--piece-size)
+    width var(--piece-size)
+
+
+label
+.o
+.x
+  display inline-block
+  height var(--piece-size)
+  width var(--piece-size)
+  position absolute
+
+.o
+.x
+  display none
+  left calc(var(--x) * (100% / 3))
+  top calc(var(--y) * (100% / 3))
+  z-index 2
+
+:checked + .x
+  display block
+  background hsl(210, 80%, 50%)
+
+:checked + .o
+  display block
+  background hsl(10, 80%, 50%)
+
+button
+  position absolute
+  top 110%
+
+input
+  position fixed
+  left 100%
+
+
+// This part only cares about showing/hiding the right labels for each move
+:checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+  // opacity 1
+  display block
+
+:checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+  // opacity 0.25
+  display none

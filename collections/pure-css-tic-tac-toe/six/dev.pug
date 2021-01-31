@@ -1,0 +1,24 @@
+form.game
+  - for (let i = 0; i < 9; i++)
+    input(type="checkbox" id=`x-${i}`)
+    - const x = i % 3
+    - const y = Math.floor(i / 3)
+    span.x(style=`--x: ${x}; --y: ${y};`)
+    input(type="checkbox" id=`o-${i}`)
+    span.o(style=`--x: ${x}; --y: ${y};`)
+  .board
+    - for (let i = 0; i < 9; i++)
+      .board__cell
+        label(for=`x-${i}`)
+          span= `Cross ${i}`
+        label(for=`o-${i}`)
+          span= `Naught ${i}`
+  .game__result.game__result--x
+    span X Wins!
+    button(type="reset") Reset Board
+  .game__result.game__result--o
+    span O Wins!
+    button(type="reset") Reset Board
+  .game__result.game__result--draw
+    span Draw...
+    button(type="reset") Reset Board

@@ -1,0 +1,128 @@
+*
+  box-sizing border-box
+
+:root
+  --size 50vmin
+  --piece-size calc(var(--size) / 3)
+
+body
+  min-height 100vh
+  display grid
+  place-items center
+  margin 0
+  overflow hidden
+
+form
+.board
+  display grid
+  place-items center
+  position relative
+
+.board
+  height var(--size)
+  width var(--size)
+  grid-template-columns repeat(3, 1fr)
+  grid-template-rows repeat(3, 1fr)
+
+  &__line
+    width calc(var(--size) * 0.05)
+    height var(--size)
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%) rotate(calc(var(--rotate) * 90deg)) translate(calc(var(--shift) * ((var(--size) / 3) * 0.5)), 0)
+
+  &__cell
+    height var(--piece-size)
+    width var(--piece-size)
+
+.game__result
+  display none
+  position absolute
+  top 110%
+  width var(--size)
+  text-align center
+
+label
+.o
+.x
+  display inline-block
+  height var(--piece-size)
+  width var(--piece-size)
+  position absolute
+
+.o
+.x
+  display none
+  left calc(var(--x) * (100% / 3))
+  top calc(var(--y) * (100% / 3))
+  z-index 2
+
+:checked + .x
+  display block
+
+:checked + .o
+  display block
+
+input
+button
+  position absolute
+
+button
+  top 110%
+
+input
+  position fixed
+  left 100%
+
+
+// This part only cares about showing/hiding the right labels for each move
+:checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+  // opacity 1
+  display block
+
+:checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+  // opacity 0.25
+  display none
+
+// Winning combos
+#x-0:checked ~ #x-1:checked ~ #x-2:checked ~ .game__result--x
+#x-3:checked ~ #x-4:checked ~ #x-5:checked ~ .game__result--x
+#x-6:checked ~ #x-7:checked ~ #x-8:checked ~ .game__result--x
+#x-0:checked ~ #x-3:checked ~ #x-6:checked ~ .game__result--x
+#x-1:checked ~ #x-4:checked ~ #x-7:checked ~ .game__result--x
+#x-2:checked ~ #x-5:checked ~ #x-8:checked ~ .game__result--x
+#x-0:checked ~ #x-4:checked ~ #x-8:checked ~ .game__result--x
+#x-2:checked ~ #x-4:checked ~ #x-6:checked ~ .game__result--x
+#o-0:checked ~ #o-1:checked ~ #o-2:checked ~ .game__result--o
+#o-3:checked ~ #o-4:checked ~ #o-5:checked ~ .game__result--o
+#o-6:checked ~ #o-7:checked ~ #o-8:checked ~ .game__result--o
+#o-0:checked ~ #o-3:checked ~ #o-6:checked ~ .game__result--o
+#o-1:checked ~ #o-4:checked ~ #o-7:checked ~ .game__result--o
+#o-2:checked ~ #o-5:checked ~ #o-8:checked ~ .game__result--o
+#o-0:checked ~ #o-4:checked ~ #o-8:checked ~ .game__result--o
+#o-2:checked ~ #o-4:checked ~ #o-6:checked ~ .game__result--o
+  display block
+
+  // Edge case if the last move is a winning move. Don't show the draw.
+  & ~ .game__result--draw
+    display none
+
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked
+  // if the last move is played and there isn't a winner, show a draw
+  ~ .game__result--draw
+    display block

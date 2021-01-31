@@ -1,7 +1,9 @@
 form.game
   - for (let i = 0; i < 9; i++)
     input(type="checkbox" id=`x-${i}`)
+    span= `Cross ${i}`
     input(type="checkbox" id=`o-${i}`)
+    span= `Naught ${i}`
   .board
     - for (let i = 0; i < 9; i++)
       .board__cell

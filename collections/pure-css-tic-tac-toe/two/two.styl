@@ -1,2 +1,23 @@
 *
   box-sizing border-box
+
+:root
+  --size 50vmin
+
+body
+  min-height 100vh
+  display grid
+  place-items center
+  margin 0
+  overflow hidden
+
+form
+.board
+  display grid
+  place-items center
+
+.board
+  height var(--size)
+  width var(--size)
+  grid-template-columns repeat(3, 1fr)
+  grid-template-rows repeat(3, 1fr)

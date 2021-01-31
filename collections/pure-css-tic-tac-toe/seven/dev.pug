@@ -1,0 +1,30 @@
+form.game
+  - for (let i = 0; i < 9; i++)
+    input(type="checkbox" id=`x-${i}`)
+    - const x = i % 3
+    - const y = Math.floor(i / 3)
+    span.x(style=`--x: ${x}; --y: ${y};`)
+    input(type="checkbox" id=`o-${i}`)
+    span.o(style=`--x: ${x}; --y: ${y};`)
+  .board
+    - for (let l = 0; l < 4; l++)
+      - const rotate = l % 2
+      - const shift = 2 % (l + 1) ? 1 : -1
+      svg.board__line(viewBox="0 0 10 300" style=`--rotate: ${rotate}; --shift: ${shift};`)
+        path(d="M 5 5 L 5 295" stroke-width="10" stroke="black" stroke-linecap="round")
+
+    - for (let i = 0; i < 9; i++)
+      .board__cell
+        label(for=`x-${i}`)
+          span= `Cross ${i}`
+        label(for=`o-${i}`)
+          span= `Naught ${i}`
+  .game__result.game__result--x
+    span X Wins!
+    button(type="reset") Reset Board
+  .game__result.game__result--o
+    span O Wins!
+    button(type="reset") Reset Board
+  .game__result.game__result--draw
+    span Draw...
+    button(type="reset") Reset Board
