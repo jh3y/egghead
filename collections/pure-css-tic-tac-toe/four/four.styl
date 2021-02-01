@@ -3,6 +3,7 @@
 
 :root
   --size 50vmin
+  --cell-size calc(var(--size) / 3)
 
 body
   min-height 100vh
@@ -11,39 +12,62 @@ body
   margin 0
   overflow hidden
 
-form
-.board
-  display grid
-  place-items center
-
 .board
   height var(--size)
   width var(--size)
+  display grid
   grid-template-columns repeat(3, 1fr)
   grid-template-rows repeat(3, 1fr)
+  place-items center
 
-:checked + span
-  background hsl(90, 80%, 50%)
-
-// This part only cares about showing/hiding the right labels for each move
+// Game mechanism
 :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-  // opacity 1
   display block
 
 :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-  // opacity 0.25
   display none
+
+label:nth-of-type(odd)
+  color red
+
+label:nth-of-type(even)
+  color green
+
+.game
+  position relative
+
+input
+  position fixed
+  left 100%
+
+button
+  position absolute
+  top 125%
+
+.o
+.x
+  position absolute
+  height var(--cell-size)
+  width var(--cell-size)
+  left calc(var(--x) * var(--cell-size))
+  top calc(var(--y) * var(--cell-size))
+
+.o
+  background hsla(0, 50%, 50%, 0.4)
+
+.x
+  background hsla(210, 50%, 50%, 0.4)

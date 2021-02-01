@@ -7,6 +7,11 @@ form.game
     input(type='checkbox' id=`o-${i}`)
     .o(style=`--x: ${x}; --y: ${y}`) Naught
   .board
+    - for (let l = 0; l < 4; l++)
+      - const rotate = l % 2
+      - const shift = 2 % (l + 1) ? 1 : -1
+      svg.board__line(viewBox="0 0 10 300" style=`--rotate: ${rotate}; --shift: ${shift};`)
+        path(d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke="black")
     - for (let i = 0; i < 9; i++)
       .board__cell
         label(for=`x-${i}`)

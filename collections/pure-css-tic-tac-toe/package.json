@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel one/index.pug two/index.pug three/index.pug four/index.pug five/index.pug six/index.pug seven/index.pug eight/index.pug nine/index.pug ten/index.pug eleven/index.pug twelve/index.pug thirteen/index.pug fourteen/index.pug"
+    "dev": "parcel one/index.pug one-b/index.pug two/index.pug three/index.pug four/index.pug five/index.pug six/index.pug seven/index.pug seven-b/index.pug eight/index.pug eight-b/index.pug nine/index.pug ten/index.pug eleven/index.pug twelve/index.pug thirteen/index.pug fourteen/index.pug fifteen/index.pug sixteen/index.pug seventeen/index.pug eighteen/index.pug"
   },
   "author": "jh3y <jh3y@users.noreply.github.com>",
   "license": "MIT",

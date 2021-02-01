@@ -12,8 +12,14 @@
   --bg hsl(210, 50%, 15%)
   --cross hsl(280, 80%, 70%)
   --naught hsl(150, 80%, 70%)
+  --zzz hsl(210, 80%, 50%)
   --line hsl(0, 0%, 90%)
   --draw-speed 0.2s
+
+@media(prefers-reduced-motion)
+  :root
+    --draw-speed 0s
+
 
 body
   background var(--bg)
@@ -62,6 +68,7 @@ button
     transform translate(-50%, 2%) scale(0.8)
 
 svg
+  filter drop-shadow(0 0 1vmin var(--stroke)) brightness(1.2)
   stroke var(--stroke, black)
 
 circle
@@ -168,6 +175,11 @@ path:nth-of-type(2)
   --stroke var(--cross)
   stroke-dashoffset 100
 
+.zzz
+  --stroke var(--zzz)
+  stroke none
+  fill var(--zzz)
+  height calc(var(--size) / 4)
 
 :checked + *
   display block
@@ -217,3 +229,33 @@ path:nth-of-type(2)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked
   ~ .game__result--draw
     display block
+
+.ghost
+  opacity 0
+  transition opacity var(--draw-speed)
+
+  circle
+  path
+    animation none
+    stroke-dashoffset 0
+
+label:hover .ghost
+  opacity 0.25
+
+.confetti
+  --confetti 1s
+  --fade 0.2s
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%) rotate(calc(var(--rotate) * 1deg)) translateY(calc(var(--travel) * 1vmin))
+  animation celebrate var(--confetti) var(--draw-speed), fadeOut var(--fade) calc((var(--draw-speed) + var(--confetti)) - var(--fade)) ease-in
+  animation-fill-mode both
+
+@keyframes celebrate
+  from
+    transform translate(-50%, -50%)
+
+@keyframes fadeOut
+  to
+    opacity 0

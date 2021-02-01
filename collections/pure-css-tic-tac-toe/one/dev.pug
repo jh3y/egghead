@@ -1,12 +1,9 @@
 form.game
   - for (let i = 0; i < 9; i++)
-    input(type="checkbox" id=`x-${i}`)
-    input(type="checkbox" id=`o-${i}`)
+    input(type='checkbox' id=`x-${i}`)
+    input(type='checkbox' id=`o-${i}`)
   .board
     - for (let i = 0; i < 9; i++)
       .board__cell
-        label(for=`x-${i}`)
-          span= `Cross ${i}`
-        label(for=`o-${i}`)
-          span= `Naught ${i}`
-  button(type="reset") Reset Board
+        label(for=`x-${i}`)= `Cross ${i}`
+        label(for=`o-${i}`)= `Naught ${i}`

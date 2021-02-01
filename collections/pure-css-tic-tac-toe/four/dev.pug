@@ -1,14 +1,14 @@
 form.game
   - for (let i = 0; i < 9; i++)
-    input(type="checkbox" id=`x-${i}`)
-    span= `Cross ${i}`
-    input(type="checkbox" id=`o-${i}`)
-    span= `Naught ${i}`
+    - const x = i % 3
+    - const y = Math.floor(i / 3)
+    input(type='checkbox' id=`x-${i}`)
+    .x(style=`--x: ${x}; --y: ${y}`)
+    input(type='checkbox' id=`o-${i}`)
+    .o(style=`--x: ${x}; --y: ${y}`)
   .board
     - for (let i = 0; i < 9; i++)
       .board__cell
-        label(for=`x-${i}`)
-          span= `Cross ${i}`
-        label(for=`o-${i}`)
-          span= `Naught ${i}`
-  button(type="reset") Reset Board
+        label(for=`x-${i}`)= `Cross ${i}`
+        label(for=`o-${i}`)= `Naught ${i}`
+  button(type='reset') Reset Board

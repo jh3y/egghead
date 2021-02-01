@@ -1,34 +1,27 @@
-@font-face
-  font-family Cyber
-  src url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf")
-  font-display swap
-
 *
   box-sizing border-box
 
 :root
   --size 50vmin
   --cell-size calc(var(--size) / 3)
-  --bg hsl(210, 50%, 15%)
-  --cross hsl(280, 80%, 70%)
-  --naught hsl(150, 80%, 70%)
-  --line hsl(0, 0%, 90%)
-  --draw-speed 0.2s
 
 body
-  background var(--bg)
   min-height 100vh
   display grid
   place-items center
   margin 0
-  font-family 'Cyber', sans-serif
   overflow hidden
-  color var(--line)
 
 label
   position absolute
   height 100%
   width 100%
+
+label:nth-of-type(odd)
+  color red
+
+label:nth-of-type(even)
+  color green
 
 input
   position fixed
@@ -37,96 +30,17 @@ input
 button
   position absolute
   top 125%
-  background transparent
-  appearance none
-  cursor pointer
-  height 5vmin
-  width 5vmin
-  min-height 48px
-  min-width 48px
-  border 0
-  outline transparent
-  padding 0
-  left 50%
-  transform translate(-50%, 0)
-  transition transform var(--draw-speed)
 
-  svg
-    stroke none
-    stroke-width 0
-
-  &:hover
-    transform translate(-50%, -4%)
-
-  &:active
-    transform translate(-50%, 2%) scale(0.8)
-
-svg
-  stroke var(--stroke, black)
-
-circle
-path
-  animation draw var(--draw-speed) calc(var(--delay, 0) * var(--draw-speed)) ease-in both
-
-path:nth-of-type(2)
-  --delay 1
-
-@keyframes draw
-  to
-    stroke-dashoffset 0
 
 .game
   position relative
 
-  &__piece
-    display none
-    position absolute
-    left calc(var(--x) * var(--cell-size))
-    top calc(var(--y) * var(--cell-size))
-
   &__result
     display none
-    position absolute
-    width calc(var(--size) * 1.5)
-    height calc(var(--size) * 1.5)
-    transform translate(-50%, -50%)
-    top 50%
-    left 50%
-
-.result
-  z-index 10
-  backdrop-filter blur(25px)
-
-  &__content
-    animation flyIn var(--draw-speed) var(--draw-speed) ease-in backwards
-    height 40%
-    width 40%
-    position absolute
-    top 50%
-    left 50%
-    transform translate(-50%, -50%)
-    border-radius 15%
-    background hsla(210, 30%, 20%, 0.8)
-    align-items center
-    display flex
-    justify-content center
-    flex-direction column
-    font-weight bold
-    font-size 2rem
-    box-shadow 0 3vmin 2.5vmin -2.5vmin hsl(0, 0%, 0%)
-
-@keyframes flyIn
-  0%
-    transform translate(-50%, 150%) scale(0)
-    opacity 0
-
-
-.reset
-  height 100%
-  fill var(--line)
 
 
 .board
+  background hsla(0, 0%, 10%, 0.1)
   height var(--size)
   width var(--size)
   display grid
@@ -135,16 +49,12 @@ path:nth-of-type(2)
   place-items center
 
   &__line
-    --stroke var(--line)
     position absolute
     height var(--size)
     width calc(var(--size) * 0.05)
     left 50%
     top 50%
     transform translate(-50%, -50%) rotate(calc(var(--rotate, 0) * -90deg)) translateX(calc(var(--shift, 0) * ((var(--size) / 3) * 0.5)))
-
-    path
-      stroke-dashoffset 300
 
   &__cell
     height var(--cell-size)
@@ -153,24 +63,22 @@ path:nth-of-type(2)
 
 .o
 .x
+  display none
+  position absolute
   height var(--cell-size)
   width var(--cell-size)
+  left calc(var(--x) * var(--cell-size))
+  top calc(var(--y) * var(--cell-size))
   z-index 2
 
-.o
-  --stroke var(--naught)
-  transform rotateX(180deg)
+:checked + div
+  display block
 
-  circle
-    stroke-dashoffset 200
+.o
+  background hsla(0, 50%, 50%, 0.4)
 
 .x
-  --stroke var(--cross)
-  stroke-dashoffset 100
-
-
-:checked + *
-  display block
+  background hsla(210, 50%, 50%, 0.4)
 
 // Game mechanism
 :checked ~ .board .board__cell label:nth-of-type(odd)

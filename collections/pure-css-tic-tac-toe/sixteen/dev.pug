@@ -1,14 +1,18 @@
+mixin cross()
+  svg.x(class!=attributes.class style!=attributes.style viewBox="0 0 100 100")
+    path(d="M 80 20 L 20 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
+    path(d="M 20 20 L 80 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
+mixin naught()
+  svg.o(class!=attributes.class style!=attributes.style viewBox="0 0 100 100")
+    circle(r="30" cx="50" cy="50" stroke-dasharray="200" stroke-width="10" stroke-linecap="round" fill="none")
 form.game
   - for (let i = 0; i < 9; i++)
     - const x = i % 3
     - const y = Math.floor(i / 3)
     input(type='checkbox' id=`x-${i}`)
-    svg.x(style=`--x: ${x}; --y: ${y}` viewBox="0 0 100 100")
-      path(d="M 80 20 L 20 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
-      path(d="M 20 20 L 80 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
+    +cross()(class="game__piece" style=`--x: ${x}; --y: ${y}`)
     input(type='checkbox' id=`o-${i}`)
-    svg.o(style=`--x: ${x}; --y: ${y}` viewBox="0 0 100 100")
-      circle(r="30" cx="50" cy="50" stroke-dasharray="200" stroke-width="10" stroke-linecap="round" fill="none")
+    +naught()(class="game__piece" style=`--x: ${x}; --y: ${y}`)
   .board
     - const DELAYS = [0, 3, 1, 2]
     - for (let l = 0; l < 4; l++)
@@ -19,13 +23,17 @@ form.game
     - for (let i = 0; i < 9; i++)
       .board__cell
         label(for=`x-${i}`)
+          +cross()(class="ghost")
         label(for=`o-${i}`)
+          +naught()(class="ghost")
   .game__result.game__result--x.result
     .result__content
       .result__title X Wins!
+      +cross()(class="result__winner")
   .game__result.game__result--o.result
     .result__content
       .result__title O Wins!
+      +naught()(class="result__winner")
   .game__result.game__result--draw.result
     .result__content
       .result__title Draw...

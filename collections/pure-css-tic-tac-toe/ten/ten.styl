@@ -3,123 +3,125 @@
 
 :root
   --size 50vmin
-  --piece-size calc(var(--size) / 3)
-  --line hsl(0, 0%, 100%)
-  --bg hsl(210, 50%, 25%)
-  --naught hsl(200, 80%, 50%)
-  --cross hsl(10, 80%, 50%)
-  --draw-speed 0.15
+  --cell-size calc(var(--size) / 3)
+  --bg hsl(210, 50%, 15%)
+  --cross hsl(280, 80%, 70%)
+  --naught hsl(150, 80%, 70%)
+  --line hsl(0, 0%, 90%)
+  --draw-speed 0.2s
 
 body
+  background var(--bg)
   min-height 100vh
   display grid
   place-items center
   margin 0
   overflow hidden
-  background var(--bg)
+
+label
+  position absolute
+  height 100%
+  width 100%
+
+input
+  position fixed
+  left 100%
+
+button
+  position absolute
+  top 125%
 
 svg
-  stroke var(--stroke)
+  stroke var(--stroke, black)
 
-form
-.board
-  display grid
-  place-items center
+circle
+path
+  animation draw var(--draw-speed) ease-in both
+
+@keyframes draw
+  to
+    stroke-dashoffset 0
+
+.game
   position relative
+
+  &__result
+    display none
+
 
 .board
   height var(--size)
   width var(--size)
+  display grid
   grid-template-columns repeat(3, 1fr)
   grid-template-rows repeat(3, 1fr)
+  place-items center
 
   &__line
     --stroke var(--line)
-    width calc(var(--size) * 0.05)
-    height var(--size)
     position absolute
-    top 50%
+    height var(--size)
+    width calc(var(--size) * 0.05)
     left 50%
-    transform translate(-50%, -50%) rotate(calc(var(--rotate) * -90deg)) translate(calc(var(--shift) * ((var(--size) / 3) * 0.5)), 0)
+    top 50%
+    transform translate(-50%, -50%) rotate(calc(var(--rotate, 0) * -90deg)) translateX(calc(var(--shift, 0) * ((var(--size) / 3) * 0.5)))
+
+    path
+      stroke-dashoffset 300
 
   &__cell
-    height var(--piece-size)
-    width var(--piece-size)
-
-.game__result
-  display none
-  position absolute
-  top 110%
-  width var(--size)
-  text-align center
-
-label
-.o
-.x
-  display inline-block
-  height var(--piece-size)
-  width var(--piece-size)
-  position absolute
+    height var(--cell-size)
+    position relative
+    width var(--cell-size)
 
 .o
 .x
   display none
-  left calc(var(--x) * (100% / 3))
-  top calc(var(--y) * (100% / 3))
+  position absolute
+  height var(--cell-size)
+  width var(--cell-size)
+  left calc(var(--x) * var(--cell-size))
+  top calc(var(--y) * var(--cell-size))
   z-index 2
 
 .o
   --stroke var(--naught)
   transform rotateX(180deg)
 
+  circle
+    stroke-dashoffset 200
+
 .x
   --stroke var(--cross)
 
-  path:nth-of-type(2)
-    --delay var(--draw-speed)
+  path
+    stroke-dashoffset 100
 
-:checked + .x
+
+:checked + *
   display block
 
-:checked + .o
-  display block
-
-input
-button
-  position absolute
-
-button
-  top 110%
-
-input
-  position fixed
-  left 100%
-
-
-// This part only cares about showing/hiding the right labels for each move
+// Game mechanism
 :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-  // opacity 1
   display block
 
 :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
-:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even)
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd)
-  // opacity 0.25
   display none
 
-// Winning combos
 #x-0:checked ~ #x-1:checked ~ #x-2:checked ~ .game__result--x
 #x-3:checked ~ #x-4:checked ~ #x-5:checked ~ .game__result--x
 #x-6:checked ~ #x-7:checked ~ #x-8:checked ~ .game__result--x
@@ -138,20 +140,9 @@ input
 #o-2:checked ~ #o-4:checked ~ #o-6:checked ~ .game__result--o
   display block
 
-  // Edge case if the last move is a winning move. Don't show the draw.
-  & ~ .game__result--draw
+  ~ .game__result--draw
     display none
 
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked
-  // if the last move is played and there isn't a winner, show a draw
   ~ .game__result--draw
     display block
-
-.board__line path
-.o circle
-.x path
-  animation draw calc(var(--draw-speed) * 1s) calc(var(--delay, 0) * 1s) ease-in both
-
-@keyframes draw
-  to
-    stroke-dashoffset 0
