@@ -243,19 +243,20 @@ label:hover .ghost
   opacity 0.25
 
 .confetti
-  --confetti 1s
-  --fade 0.2s
+  --size 2.5vmin
+  height var(--size)
+  width var(--size)
+  background 'hsl(%s, 80%, 70%)' % var(--hue)
   position absolute
   top 50%
   left 50%
-  transform translate(-50%, -50%) rotate(calc(var(--rotate) * 1deg)) translateY(calc(var(--travel) * 1vmin))
-  animation celebrate var(--confetti) var(--draw-speed), fadeOut var(--fade) calc((var(--draw-speed) + var(--confetti)) - var(--fade)) ease-in
-  animation-fill-mode both
+  transform translate(-50%, -50%) scale(1) rotate(calc(var(--rotate, 0) * 1deg)) translateY(calc(var(--travel, 0) * 1vmin)) skew(calc(var(--skew) * 1deg))
+  animation celebrate 0.5s calc((var(--delay) + 1) * 0.1s) both
 
 @keyframes celebrate
-  from
-    transform translate(-50%, -50%)
-
-@keyframes fadeOut
-  to
+  0%
+    transform translate(-50%, -50%) scale(0)
+  90%
+    opacity 1
+  100%
     opacity 0

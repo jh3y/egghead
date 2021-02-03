@@ -8,7 +8,7 @@ form.game
     .o(style=`--x: ${x}; --y: ${y}`) Naught
   .board
     - for (let l = 0; l < 4; l++)
-      svg.board__line(viewBox="0 0 10 300" style=`--rotate: ${rotate};`)
+      svg.board__line(viewBox="0 0 10 300")
         path(d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke="black")
     - for (let i = 0; i < 9; i++)
       .board__cell

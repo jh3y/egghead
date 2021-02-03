@@ -4,18 +4,18 @@ form.game
     - const y = Math.floor(i / 3)
     input(type='checkbox' id=`x-${i}`)
     svg.x(style=`--x: ${x}; --y: ${y}` viewBox="0 0 100 100")
-      path(d="M 80 20 L 20 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
-      path(d="M 20 20 L 80 80" stroke-dasharray="100" stroke-width="10" stroke-linecap="round")
+      path(d="M 80 20 L 20 80" stroke-dasharray="100" stroke-dashoffset="100" stroke-width="10" stroke-linecap="round")
+      path(d="M 20 20 L 80 80" stroke-dasharray="100" stroke-dashoffset="100" stroke-width="10" stroke-linecap="round")
     input(type='checkbox' id=`o-${i}`)
     svg.o(style=`--x: ${x}; --y: ${y}` viewBox="0 0 100 100")
-      circle(r="30" cx="50" cy="50" stroke-dasharray="200" stroke-width="10" stroke-linecap="round" fill="none")
+      circle(r="30" cx="50" cy="50" stroke-dasharray="200" stroke-dashoffset="200" stroke-width="10" stroke-linecap="round" fill="none")
   .board
     - const DELAYS = [0, 3, 1, 2]
     - for (let l = 0; l < 4; l++)
       - const rotate = l % 2
       - const shift = 2 % (l + 1) ? 1 : -1
       svg.board__line(viewBox="0 0 10 300" style=`--rotate: ${rotate}; --shift: ${shift}; --delay: ${DELAYS[l]};`)
-        path(d="M 5 5 L 5 295" stroke-dasharray="300" stroke-width="10" stroke-linecap="round")
+        path(d="M 5 5 L 5 295" stroke-dasharray="300" stroke-dashoffset="300" stroke-width="10" stroke-linecap="round")
     - for (let i = 0; i < 9; i++)
       .board__cell
         label(for=`x-${i}`)
